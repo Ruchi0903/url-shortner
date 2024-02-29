@@ -10,7 +10,8 @@ interface IContainerProps {
 
 const Container: React.FunctionComponent<IContainerProps> = () => {
 
-  const [data, setData] = React.useState<UrlData>([]);
+  const [data, setData] = React.useState<UrlData>({} as UrlData);
+  // const [data, setData] = React.useState<UrlData>([]);
   const [reload, setReload] = React.useState<boolean>(false);
 
   const updateReloadState = (): void => {
@@ -32,7 +33,8 @@ const Container: React.FunctionComponent<IContainerProps> = () => {
   return (
     <>
       <FormContainer updateReloadState={updateReloadState} />
-      <DataTable updateReloadState={updateReloadState} data={data} />
+      <DataTable updateReloadState={updateReloadState} data={[data]} />
+      {/* <DataTable updateReloadState={updateReloadState} data={data} /> */}
     </>
   );
 };
